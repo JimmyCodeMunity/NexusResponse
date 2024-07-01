@@ -40,6 +40,15 @@
                                             placeholder="Phone Number">
                                     </div>
                                 </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputUsername1">Profile Pic<span class="text-danger">*</span>
+                                        </label>
+                                        <input type="file" value="{{ old('profile_pic') }}" style="color:white"
+                                            class="form-control" name="profile_pic" required id="exampleInputUsername1"
+                                            placeholder="">
+                                    </div>
+                                </div>
                             </div>
                             
                             

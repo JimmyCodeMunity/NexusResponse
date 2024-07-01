@@ -4,7 +4,7 @@
 @section('content')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> System Users </h3>
+            <h3 class="page-title"> Assigned Emergencies </h3>
             <nav aria-label="breadcrumb">
                 <!-- <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>

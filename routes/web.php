@@ -82,6 +82,8 @@ Route::middleware([AdminMiddlware::class])->group(function(){
     Route::get('/admin/admin/list',[AdminController::class, 'adminlist']);
     //visit admin edit page
     Route::get('/admin/admin/edit/{id}',[AdminController::class, 'adminedit']);
+    Route::post('admin/admin/edit/{id}', [AdminController::class, 'updateadmin']);
+    Route::get('admin/admin/delete/{id}', [AdminController::class, 'deleteadmin']);
 
 
     //view users route
@@ -89,12 +91,18 @@ Route::middleware([AdminMiddlware::class])->group(function(){
     Route::get('/admin/user/add',[UserController::class,'adduserroute']);
     Route::post('/admin/user/add',[UserController::class,'adduser']);
     // Route::get('/admin/user/list',[UserController::class,'userlist']);
+    Route::get('/admin/user/edit/{id}',[UserController::class, 'useredit']);
+    Route::post('admin/user/edit/{id}', [UserController::class, 'updateuser']);
+    Route::get('admin/user/delete/{id}', [UserController::class, 'deleteuser']);
 
 
     //medic routes
     Route::get('admin/medic/add',[MedicController::class,'addmedicroute']);
     Route::post('admin/medic/add',[MedicController::class,'addmedic']);
     Route::get('admin/medic/list',[MedicController::class,'mediclist']);
+    Route::get('/admin/medic/edit/{id}',[MedicController::class, 'medicedit']);
+    Route::post('admin/medic/edit/{id}', [MedicController::class, 'updatemedic']);
+    Route::get('admin/medic/delete/{id}', [MedicController::class, 'deletemedic']);
 
 
     //emergency routes
@@ -108,6 +116,7 @@ Route::middleware([AdminMiddlware::class])->group(function(){
     Route::get('/admin/emergencies/assignmedic/{id}',[EmergencyMedicController::class, 'assignmedic']);
     Route::post('/admin/emergencies/assignmedic/{id}',[EmergencyMedicController::class, 'setassigned']);
     Route::get('admin/emergencies/delete/{id}', [EmergencyMedicController::class, 'deleteemergency']);
+    
 });
 
 
@@ -117,11 +126,21 @@ Route::middleware([MedicMiddlware::class])->group(function(){
     
     Route::get('/medic/dashboard',[MedicController::class,'medicdashboard']);
     Route::get('/medic/edit/{id}',[MedicController::class,'medicedit']);
+    Route::get('admin/medic/markcomplete/{id}', [MedicController::class, 'markcomplete']);
+    Route::get('admin/medic/list',[MedicController::class,'mediclist']);
+
+    //view profile
+    Route::get('/admin/medic/edit/{id}',[MedicController::class, 'medicedit']);
+    Route::post('admin/medic/edit/{id}', [MedicController::class, 'updatemedic']);
 });
 
 // //user middleware
 Route::middleware([UserMiddlware::class])->group(function(){
-    Route::get('/user/dashboard',function(){
-        return view('admin.dashboard');
-    });
+    
+    Route::get('/user/dashboard',[UserController::class,'userdashboard']);
+
+
+    //profile edit
+    Route::get('/admin/user/edit/{id}',[UserController::class, 'useredit']);
+    Route::post('admin/user/edit/{id}', [UserController::class, 'updateuser']);
 });

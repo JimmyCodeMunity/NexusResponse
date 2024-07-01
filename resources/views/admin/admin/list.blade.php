@@ -77,6 +77,7 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th> Image </th>
                                         <th> Username </th>
                                         <th> Email </th>
                                         <th> Created_date </th>
@@ -88,6 +89,9 @@
                                     @foreach ($getRecord as $value)
                                         <tr>
 
+                                            <td style="color:white;"> <img class="img-xs rounded-circle" 
+     src="{{ $value->profile_pic ? asset($value->profile_pic) : asset('images/happy.png') }}" 
+     alt=""> </td>
                                             <td style="color:white;"> {{ $value->name }} </td>
 
                                             <td style="color:white;"> {{ $value->email }} </td>
@@ -105,10 +109,10 @@
                                 </tbody>
                             </table>
 
-                            <!-- <div style="float:right;padding:10px;">
+                            <div style="float:right;padding:10px;">
                                 {!! $getRecord->appends(Illuminate\Support\Facades\Request::except('page'))->links() !!}
 
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>

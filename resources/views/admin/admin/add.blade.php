@@ -19,7 +19,7 @@
                         <h4 class="card-title">Admin Details</h4>
                         @include('message')
                         
-                        <form class="forms-sample" action="" method="post">
+                        <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="exampleInputUsername1">Username</label>
@@ -36,6 +36,16 @@
                                 <input type="password" value="{{old('password')}}" style="color:white" class="form-control" name="password" id="exampleInputPassword1"
                                     placeholder="Password">
                             </div>
+
+                            <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputUsername1">Profile Pic<span class="text-danger">*</span>
+                                        </label>
+                                        <input type="file" value="{{ old('profile_pic') }}" style="color:white"
+                                            class="form-control" name="profile_pic" required id="exampleInputUsername1"
+                                            placeholder="">
+                                    </div>
+                                </div>
                             
                             
                             <button type="submit" class="btn btn-primary me-2">Submit</button>

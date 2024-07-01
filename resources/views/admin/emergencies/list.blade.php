@@ -4,7 +4,7 @@
 @section('content')
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title"> System Users </h3>
+            <h3 class="page-title"> Unassigned Emergencies </h3>
             <nav aria-label="breadcrumb">
                 <!-- <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Tables</a></li>
@@ -67,7 +67,7 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <h4 class="card-title">Emergencies List(Total: {{ $getRecord->total() }})</h4>
+                        <h4 class="card-title">Unassigned Emergencies List(Total: {{ $getRecord->total() }})</h4>
                         <div class="col-sm-2">
                             <a class="nav-link btn btn-success create-new-button text-black"
                                 href="{{ url('admin/user/add') }}">+ Assign new Medic</a>

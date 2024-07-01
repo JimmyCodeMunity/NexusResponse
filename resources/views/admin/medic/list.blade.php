@@ -67,7 +67,7 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <h4 class="card-title">Students List(Total: {{ $getRecord->total() }})</h4>
+                        <h4 class="card-title">Medics List(Total: {{ $getRecord->total() }})</h4>
                         <div class="col-sm-2">
                             <a class="nav-link btn btn-success create-new-button text-black"
                                 href="{{ url('admin/medic/add') }}">+ Add new Medic</a>
@@ -77,6 +77,7 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th> Profile </th>
                                         <th> Username </th>
                                         <th> Email </th>
                                         <th> Created_date </th>
@@ -88,17 +89,22 @@
                                     @foreach ($getRecord as $value)
                                         <tr>
 
-                                            <td style="color:white;"> {{ $value->name }} </td>
+                                        <td style="color:white;"> <td style="color:white;"> <img class="img-xs rounded-circle" 
+     src="{{ $value->profile_pic ? asset($value->profile_pic) : asset('images/happy.png') }}" 
+     alt=""> </td></td>    
+                                        <td style="color:white;"> {{ $value->name }} </td>
 
                                             <td style="color:white;"> {{ $value->email }} </td>
                                             {{-- <td style="color:white;"> {{ $value->created_at }} </td> --}}
                                             <td style="color:white;"> {{ date('d-m-Y',strtotime($value->created_at)) }} </td>
+                                            @if(Auth::user()->user_type == 1)
                                             <td style="color:white;">
-                                                <a href="{{ url('admin/admin/edit', $value->id) }}"
+                                                <a href="{{ url('admin/medic/edit', $value->id) }}"
                                                     class="btn btn-primary">Edit</a>
-                                                <a href="{{ url('admin/admin/delete', $value->id) }}"
+                                                <a href="{{ url('admin/medic/delete', $value->id) }}"
                                                     class="btn btn-danger">Delete</a>
                                             </td>
+                                            @endif
 
                                         </tr>
                                     @endforeach

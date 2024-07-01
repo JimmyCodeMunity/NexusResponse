@@ -77,6 +77,7 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th> Profile </th>
                                         <th> Username </th>
                                         <th> Email </th>
                                         <th> Created_date </th>
@@ -88,15 +89,18 @@
                                     @foreach ($getRecord as $value)
                                         <tr>
 
+                                            <td style="color:white;"> <td style="color:white;"> <img class="img-xs rounded-circle" 
+     src="{{ $value->profile_pic ? asset($value->profile_pic) : asset('images/happy.png') }}" 
+     alt=""> </td></td>
                                             <td style="color:white;"> {{ $value->name }} </td>
 
                                             <td style="color:white;"> {{ $value->email }} </td>
                                             {{-- <td style="color:white;"> {{ $value->created_at }} </td> --}}
                                             <td style="color:white;"> {{ date('d-m-Y',strtotime($value->created_at)) }} </td>
                                             <td style="color:white;">
-                                                <a href="{{ url('admin/admin/edit', $value->id) }}"
+                                                <a href="{{ url('admin/user/edit', $value->id) }}"
                                                     class="btn btn-primary">Edit</a>
-                                                <a href="{{ url('admin/admin/delete', $value->id) }}"
+                                                <a href="{{ url('admin/user/delete', $value->id) }}"
                                                     class="btn btn-danger">Delete</a>
                                             </td>
 
