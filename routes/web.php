@@ -20,7 +20,7 @@ Route::post('/requestemergency', [ResponseController::class,'sendEmergency']);
 
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified']);
 
-
+Route::get('admin/medic/list',[MedicController::class,'mediclist']);
 
 //first route
 Route::get('/login',[AuthController::class,'login']);
@@ -99,7 +99,7 @@ Route::middleware([AdminMiddlware::class])->group(function(){
     //medic routes
     Route::get('admin/medic/add',[MedicController::class,'addmedicroute']);
     Route::post('admin/medic/add',[MedicController::class,'addmedic']);
-    Route::get('admin/medic/list',[MedicController::class,'mediclist']);
+    // Route::get('admin/medic/list',[MedicController::class,'mediclist']);
     Route::get('/admin/medic/edit/{id}',[MedicController::class, 'medicedit']);
     Route::post('admin/medic/edit/{id}', [MedicController::class, 'updatemedic']);
     Route::get('admin/medic/delete/{id}', [MedicController::class, 'deletemedic']);
@@ -127,7 +127,7 @@ Route::middleware([MedicMiddlware::class])->group(function(){
     Route::get('/medic/dashboard',[MedicController::class,'medicdashboard']);
     Route::get('/medic/edit/{id}',[MedicController::class,'medicedit']);
     Route::get('admin/medic/markcomplete/{id}', [MedicController::class, 'markcomplete']);
-    Route::get('admin/medic/list',[MedicController::class,'mediclist']);
+    // Route::get('admin/medic/list',[MedicController::class,'mediclist']);
 
     //view profile
     Route::get('/admin/medic/edit/{id}',[MedicController::class, 'medicedit']);
